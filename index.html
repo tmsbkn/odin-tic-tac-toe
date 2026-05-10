@@ -7,43 +7,70 @@
       <link rel="stylesheet" href="style.css" />
    </head>
    <body>
-      <header>
-         <h2>Tic-Tac-Toe</h2>
-      </header>
-      <main>
-         <nav>
-            <a class="button">Reset Game</a>
-            <a class="button">New Game</a>
-         </nav>
+      <div class="site-wrap">
+         <header>
+            <h2>Tic-Tac-Toe</h2>
+         </header>
+         <main>
+            <nav>
+               <a class="button">Reset Game</a>
+               <a class="button">New Game</a>
+            </nav>
 
-         <div class="gameboard">
-            <div id="1" class="box"></div>
-            <div id="2" class="box">O</div>
-            <div id="3" class="box">X</div>
-            <div id="4" class="box">X</div>
-            <div id="5" class="box">X</div>
-            <div id="6" class="box">O</div>
-            <div id="7" class="box">X</div>
-            <div id="8" class="box"></div>
-            <div id="9" class="box"></div>
-         </div>
-         <h2 class="turn">Player 1's Turn</h2>
-      </main>
-      <footer>
-         <cite>
-            Photo by
-            <a
-               href="https://unsplash.com/@wirhabenzeit?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
-               >Dominik Schröder</a
-            >
-            on
-            <a
-               href="https://unsplash.com/photos/white-clouds-during-daytime-FIKD9t5_5zQ?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
-               >Unsplash</a
-            >
-         </cite>
+            <div class="gameboard">
+               <div id="1" class="box"></div>
+               <div id="2" class="box">O</div>
+               <div id="3" class="box">X</div>
+               <div id="4" class="box">X</div>
+               <div id="5" class="box">X</div>
+               <div id="6" class="box">O</div>
+               <div id="7" class="box">X</div>
+               <div id="8" class="box"></div>
+               <div id="9" class="box"></div>
+            </div>
+            <h2 class="turn">Player 1's Turn</h2>
+         </main>
+         <footer>
+            <cite>
+               Photo by
+               <a
+                  href="https://unsplash.com/@wirhabenzeit?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+                  >Dominik Schröder</a
+               >
+               on
+               <a
+                  href="https://unsplash.com/photos/white-clouds-during-daytime-FIKD9t5_5zQ?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+                  >Unsplash</a
+               >
+            </cite>
 
-         <script src="script.js"></script>
-      </footer>
+            <script src="script.js"></script>
+         </footer>
+      </div>
+      <div class="formWrap">
+         <form id="gameForm" autocomplete="off">
+            <div class="inputField">
+               <label class="input-label">(X) Player 1's name:</label>
+               <input
+                  type="text"
+                  name="player1Name"
+                  id="form1"
+                  class="formClass"
+                  required
+               />
+            </div>
+            <div class="inputField">
+               <label class="input-label">(O) Player 2's name:</label>
+               <input
+                  type="text"
+                  name="player2Name"
+                  id="form2"
+                  class="formClass"
+                  required
+               />
+            </div>
+            <button type="submit" class="startButton">Start Game</button>
+         </form>
+      </div>
    </body>
 </html>
