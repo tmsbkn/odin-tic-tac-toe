@@ -6,6 +6,7 @@
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 :root{
@@ -25,6 +26,28 @@ body{
 
     /* Grid Layout */
     display: grid;
-    grid-template-rows: auto 1fr auto;
+    grid-template-rows: 4rem 1fr auto;
+    justify-content: center;
 }
 
+main{
+    width: min(800px, calc(100vw - 2rem));
+    background: #eef9ff66;
+    backdrop-filter: blur(5px);
+    border-radius: 3rem;
+    border-color: white;
+    border-width: 3px;
+    border-style:solid;
+}
+
+footer cite{
+    text-align: center;
+    color: #555;
+    display: block;
+    margin: 0.5rem 0;
+    a{
+        font-family: 'Poetsen One';
+        color: #58e;
+        text-decoration: none;
+    }
+}
