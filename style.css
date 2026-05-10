@@ -7,4 +7,8 @@ body{
     background-size: cover;
     background-position: center;
     min-height: 100dvh;
+
+    /* Grid Layout */
+    display: grid;
+    grid-template-rows: auto 1fr auto;
 }
