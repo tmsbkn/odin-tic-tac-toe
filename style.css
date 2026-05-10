@@ -70,6 +70,7 @@ nav{
         border-radius: 100vw;
         color: var(--color-dark);
         text-decoration: none;
+        cursor: pointer;
 }
 .button:hover{
     outline: var(--color-blue) 2px solid;
@@ -82,7 +83,8 @@ nav{
     max-width: 24rem;
     margin: auto;
 }
-.box{
+.box{ 
+    cursor: pointer;
     align-content: center;
     text-align: center;
     font-family: var(--font-heading);
@@ -93,7 +95,7 @@ nav{
     aspect-ratio: 1 /1;
 }
 .box:hover{
-    outline: var(--color-blue) 2px solid;
+    box-shadow: 0 0 10px var(--color-yellow);
 }
 .turn{
     display: inline-block;
