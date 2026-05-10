@@ -11,11 +11,13 @@
 
 :root{
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-weight: 400;
+    --font-heading: 'Poetsen One';
+    --color-dark: #333;
+    --color-blue: #58e;
 }
 
 h2{
-    font-family: 'Poetsen One';
+    font-family: var(--font-heading);
 }
 
 body{
@@ -26,28 +28,82 @@ body{
 
     /* Grid Layout */
     display: grid;
-    grid-template-rows: 4rem 1fr auto;
+    grid-template-rows: 1fr 4fr 1fr;
     justify-content: center;
 }
-
+header{
+    align-content: center;
+}
+header h2{
+    text-align: center;
+    font-size: 4rem;
+    color: var(--color-dark);
+}
 main{
+    padding: 1.5rem;
     width: min(800px, calc(100vw - 2rem));
-    background: #eef9ff66;
+    background: #93b8d366;
     backdrop-filter: blur(5px);
-    border-radius: 3rem;
+    border-radius: 2rem;
     border-color: white;
     border-width: 3px;
     border-style:solid;
 }
+nav{
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    margin: 1rem 0;
+    font-family: var(--font-heading);
+    font-size: clamp(0.9rem, 4vw, 1.5rem);
+}
+.button{
+        display: block;
+        background-color: white;
+        padding: 0.5em 1em;
+        border-radius: 100vw;
+        color: var(--color-dark);
+        text-decoration: none;
+}
+.button:hover{
+    outline: var(--color-blue) 2px solid;
+}
 
+.gameboard{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap:10px;
+    max-width: 24rem;
+    margin: auto;
+}
+.box{
+    align-content: center;
+    text-align: center;
+    font-family: var(--font-heading);
+    font-size: clamp(30px,15vw,70px);
+    font-weight: 900;
+    background-color: white;
+    border-radius: 100vw;
+    aspect-ratio: 1 /1;
+}
+.box:hover{
+    outline: var(--color-blue) 2px solid;
+}
+.turn{
+    text-align: center;
+    margin-top: 30px;
+}
+footer{
+    align-content: end;
+}
 footer cite{
     text-align: center;
-    color: #555;
+    color: var(--color-dark);
     display: block;
     margin: 0.5rem 0;
     a{
-        font-family: 'Poetsen One';
-        color: #58e;
+        font-family: var(--font-heading);
+        color: var(--color-blue);
         text-decoration: none;
     }
 }
