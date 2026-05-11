@@ -27,11 +27,13 @@ body{
     background-position: center;
     position: relative;
     min-height: 100lvh;
-    
+    width: 100lvw;
 }
 
 .site-wrap{
     min-height: 100dvh;
+    width: 100dvw;
+    margin: auto;
     display: grid;
     grid-template-rows: 1fr auto 1fr;
     justify-content: center;
@@ -118,8 +120,8 @@ footer{
     top: 0;
     right: 0;
     backdrop-filter: blur(25px) brightness(0.9);
-    height: 100dvh;
-    width: 100dvw;
+    height: 100lvh;
+    width: 100lvw;
 }
 
 #gameForm{
