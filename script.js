@@ -100,7 +100,7 @@ const checkWinner = (data) => {
          data.board[condition[0]] === data.board[condition[1]] &&
          data.board[condition[1]] === data.board[condition[2]]
       ) {
-         console.log('player won');
+         data.gameOver = true;
          result = true;
       }
    });
