@@ -41,10 +41,33 @@ const addEventListenersToGameBoard = (data) => {
 const initializeGame = (data) => {
    //initialize game variables
    initializeVariables(data);
-   console.log(data);
    addEventListenersToGameBoard(data);
    adjustDom('#whoseTurn', `${data.player1Name}'s turn`);
+   const newGameButton = document.querySelector('#newGameBtn');
+   newGameButton.addEventListener('click', (event) => {
+      newGame(data);
+   });
+   const resetGameButton = document.querySelector('#resetGameBtn');
+   resetGameButton.addEventListener('click', (event) => {
+      resetGame(data);
+   });
    //add event click listeners to gameBoard
+};
+
+const newGame = (data) => {
+   initializeVariables(data);
+   document.querySelectorAll('.box').forEach((box) => {
+      box.textContent = '';
+   });
+   let displayTurnName =
+      data.currentPlayer === 'X' ? data.player1Name : data.player2Name;
+   adjustDom('#whoseTurn', `${displayTurnName}'s turn`);
+};
+
+const resetGame = (data) => {
+   newGame(data);
+   document.querySelector('.formWrap').removeAttribute('hidden', true);
+   document.querySelector('#gameForm').reset();
 };
 
 const changePlayerTurn = (data) => {
@@ -74,7 +97,6 @@ const playMove = (box, data) => {
    box.textContent = data.currentPlayer;
    box.className = data.currentPlayer === 'X' ? 'box player1' : 'box player2';
    data.round++;
-   console.log(box, data);
 
    //check win conditions
    if (endConditions(data)) {
