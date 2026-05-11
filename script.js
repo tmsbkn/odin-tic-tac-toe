@@ -10,7 +10,7 @@ form.addEventListener('submit', (event) => {
 });
 
 const initializeVariables = (data) => {
-   data.board = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+   data.board = [0, 1, 2, 3, 4, 5, 6, 7, 8];
    data.player1 = 'X';
    data.player2 = 'O';
    data.round = 0;
@@ -18,14 +18,50 @@ const initializeVariables = (data) => {
    data.gameOver = false;
 };
 
+const addEventListenersToGameBoard = (data) => {
+   document.querySelectorAll('.box').forEach((box) => {
+      box.addEventListener('click', (event) => {
+         playMove(event.target, data);
+      });
+   });
+};
+
 const initializeGame = (data) => {
    //initialize game variables
    initializeVariables(data);
    console.log(data);
-
+   addEventListenersToGameBoard(data);
    //add event click listeners to gameBoard
 };
 
+const changePlayerTurn = (data) => {
+   if (data.currentPlayer === 'X') {
+      data.currentPlayer = 'O';
+   } else {
+      data.currentPlayer = 'X';
+   }
+};
+
+const playMove = (box, data) => {
+   //is game over?
+   if (data.gameOver || data.round > 8) {
+      return;
+   }
+   //is box occupied?
+   if (data.board[box.id] === 'X' || data.board[box.id] === 'O') {
+      return;
+   }
+
+   //adjust DOM with player move, then check against win conditions
+
+   data.board[box.id] = data.currentPlayer;
+   box.textContent = data.currentPlayer;
+   box.className = data.currentPlayer === 'X' ? 'box player1' : 'box player2';
+   data.round++;
+   console.log(box, data);
+
+   //check win conditions
+};
 // Attach event listener to boxes
 
 // initialize game
