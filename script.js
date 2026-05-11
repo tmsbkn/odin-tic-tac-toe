@@ -25,6 +25,7 @@ const initializeVariables = (data) => {
    data.player1 = 'X';
    data.player2 = 'O';
    data.round = 0;
+   data.winner = '';
    data.currentPlayer = 'X';
    data.gameOver = false;
 };
@@ -42,6 +43,7 @@ const initializeGame = (data) => {
    initializeVariables(data);
    console.log(data);
    addEventListenersToGameBoard(data);
+   adjustDom('#whoseTurn', `${data.player1Name}'s turn`);
    //add event click listeners to gameBoard
 };
 
@@ -51,6 +53,9 @@ const changePlayerTurn = (data) => {
    } else {
       data.currentPlayer = 'X';
    }
+   let displayTurnName =
+      data.currentPlayer === 'X' ? data.player1Name : data.player2Name;
+   adjustDom('#whoseTurn', `${displayTurnName}'s turn`);
 };
 
 const playMove = (box, data) => {
@@ -70,11 +75,13 @@ const playMove = (box, data) => {
    box.className = data.currentPlayer === 'X' ? 'box player1' : 'box player2';
    data.round++;
    console.log(box, data);
-   changePlayerTurn(data);
+
    //check win conditions
    if (endConditions(data)) {
+      return;
       //adjust DOM to reflect Win conditions;
    }
+   changePlayerTurn(data);
 };
 
 //set win conditions
@@ -85,9 +92,14 @@ const endConditions = (data) => {
    //game not done
    if (checkWinner(data)) {
       //adjust DOM for winner
+      let winnerName =
+         data.currentPlayer === 'X' ? data.player1Name : data.player2Name;
+      adjustDom('#whoseTurn', winnerName + ' has won the game');
       return true;
    } else if (data.round === 9) {
       //adjust DOM for tie
+      adjustDom('#whoseTurn', 'Its a tie game');
+      data.gameOver = true;
       return true;
    }
    return false;
@@ -105,5 +117,9 @@ const checkWinner = (data) => {
       }
    });
    return result;
+};
+const adjustDom = (selector, textContent) => {
+   const elem = document.querySelector(`${selector}`);
+   elem.textContent = textContent;
 };
 //after each move, check win conditions. If not met change active player
