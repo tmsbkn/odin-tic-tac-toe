@@ -6,20 +6,24 @@ form.addEventListener('submit', (event) => {
    const formData = new FormData(form);
    const data = Object.fromEntries(formData);
    document.querySelector('.formWrap').setAttribute('hidden', true);
-   console.log(data);
    initializeGame(data);
 });
 
-const initializeGame = (data) => {
-   //initialize game variables
-
-   //add event click listeners to gameBoard
+const initializeVariables = (data) => {
    data.board = [1, 2, 3, 4, 5, 6, 7, 8, 9];
    data.player1 = 'X';
    data.player2 = 'O';
    data.round = 0;
    data.currentPlayer = 'X';
    data.gameOver = false;
+};
+
+const initializeGame = (data) => {
+   //initialize game variables
+   initializeVariables(data);
+   console.log(data);
+
+   //add event click listeners to gameBoard
 };
 
 // Attach event listener to boxes
