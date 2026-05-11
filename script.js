@@ -78,7 +78,18 @@ const playMove = (box, data) => {
 // initialize game
 
 //set win conditions
-
+const endConditions = (data) => {
+   //3 options
+   //winner
+   //tie
+   //game not done
+   if (checkWinner(data)) {
+      return true;
+   } else if (data.round === 9) {
+      return true;
+   }
+   return false;
+};
 // determine current player
 
 //after each move, check win conditions. If not met change active player
