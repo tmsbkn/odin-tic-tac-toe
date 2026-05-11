@@ -72,10 +72,10 @@ const playMove = (box, data) => {
    console.log(box, data);
 
    //check win conditions
+   if (endConditions(data)) {
+      //adjust DOM to reflect Win conditions;
+   }
 };
-// Attach event listener to boxes
-
-// initialize game
 
 //set win conditions
 const endConditions = (data) => {
@@ -84,12 +84,26 @@ const endConditions = (data) => {
    //tie
    //game not done
    if (checkWinner(data)) {
+      //adjust DOM for winner
       return true;
    } else if (data.round === 9) {
+      //adjust DOM for tie
       return true;
    }
    return false;
 };
 // determine current player
-
+const checkWinner = (data) => {
+   let result = false;
+   winningMoves.forEach((condition) => {
+      if (
+         data.board[condition[0]] === data.board[condition[1]] &&
+         data.board[condition[1]] === data.board[condition[2]]
+      ) {
+         console.log('player won');
+         result = true;
+      }
+   });
+   return result;
+};
 //after each move, check win conditions. If not met change active player
