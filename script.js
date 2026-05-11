@@ -70,7 +70,7 @@ const playMove = (box, data) => {
    box.className = data.currentPlayer === 'X' ? 'box player1' : 'box player2';
    data.round++;
    console.log(box, data);
-
+   changePlayerTurn(data);
    //check win conditions
    if (endConditions(data)) {
       //adjust DOM to reflect Win conditions;
