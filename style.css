@@ -172,7 +172,8 @@ input[type="text"]{
     filter: brightness(1.1);
 }
 
-footer cite{
+footer{
+    font-size: 1rem;
     text-align: center;
     color: var(--color-dark);
     display: block;
